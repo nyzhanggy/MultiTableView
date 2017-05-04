@@ -1,10 +1,10 @@
 
 
 #import "ViewController.h"
-#import "DDMulipleView.h"
+#import "DDMultipleView.h"
 
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,DDMulipleViewDataSources,DDMulipleViewDelegate> {
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,DDMultipleViewDataSources,DDMultipleViewDelegate> {
 	NSArray *_viewControllers;
     NSMutableArray *_titleArray;
     NSMutableArray *_viewsArray;
@@ -14,7 +14,7 @@
     NSInteger _rowNumber;
 }
 	
-@property (nonatomic,strong) DDMulipleView *mulipleView;
+@property (nonatomic,strong) DDMultipleView *multipleView;
 
 @end
 
@@ -39,7 +39,7 @@
     
     // 内容视图 tableviews
     for (NSInteger index = 0; index < 3; index ++) {
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_mulipleView.frame), CGRectGetHeight(_mulipleView.frame)) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_multipleView.frame), CGRectGetHeight(_multipleView.frame)) style:UITableViewStylePlain];
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tag = index;
@@ -50,7 +50,7 @@
         }
     }
 
-	[self.view addSubview:self.mulipleView];
+	[self.view addSubview:self.multipleView];
 
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -62,33 +62,33 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 20;
 }
-- (void)mulipleView:(DDMulipleView *)mulipleView didSelectedSection:(NSInteger)section {
+- (void)multipleView:(DDMultipleView *)multipleView didSelectedSection:(NSInteger)section {
     NSLog(@"%td",section);
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.view addSubview:self.mulipleView];
+    [self.view addSubview:self.multipleView];
 }
-- (NSInteger)numberOfSectionsInMulipleView:(DDMulipleView *)mulipleView  {
+- (NSInteger)numberOfSectionsInMultipleView:(DDMultipleView *)multipleView  {
     return _viewsArray.count;
 }
 
-- (UITableView *)mulipleView:(DDMulipleView *)mulipleView tableViewForSection:(NSInteger)section {
+- (UITableView *)multipleView:(DDMultipleView *)multipleView tableViewForSection:(NSInteger)section {
     return _viewsArray[section];
 }
-- (UIView *)headerViewForMulipleView:(DDMulipleView *)mulipleView {
+- (UIView *)headerViewForMultipleView:(DDMultipleView *)multipleView {
     return _headerView;
 }
 
-- (DDMulipleView *)mulipleView {
-	if (!_mulipleView) {
-		_mulipleView = [[DDMulipleView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 20)];
-        _mulipleView.dataSources = self;
-        _mulipleView.delegate = self;
-        _mulipleView.hoverOffset = 64;
-        _mulipleView.tiltleArray = _titleArray;
-        _mulipleView.sectionSelectedColor = [UIColor blueColor];
+- (DDMultipleView *)multipleView {
+	if (!_multipleView) {
+		_multipleView = [[DDMultipleView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 20)];
+        _multipleView.dataSources = self;
+        _multipleView.delegate = self;
+        _multipleView.hoverOffset = 64;
+        _multipleView.tiltleArray = _titleArray;
+        _multipleView.sectionSelectedColor = [UIColor blueColor];
 	}
-	return _mulipleView;
+	return _multipleView;
 }
 	
 
@@ -126,26 +126,26 @@
 	
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 5) {
-        _headerView .frame = CGRectMake(0, 0, CGRectGetWidth(_mulipleView.frame), 400);
-        [_mulipleView reloadHeaderView];
+        _headerView .frame = CGRectMake(0, 0, CGRectGetWidth(_multipleView.frame), 400);
+        [_multipleView reloadHeaderView];
     } else if (indexPath.row == 4){
-        _headerView .frame = CGRectMake(0, 0, CGRectGetWidth(_mulipleView.frame), 80);
-        [_mulipleView reloadHeaderView];
+        _headerView .frame = CGRectMake(0, 0, CGRectGetWidth(_multipleView.frame), 80);
+        [_multipleView reloadHeaderView];
     } else if (indexPath.row == 3) {
         
-        [_mulipleView updateSectionTitle:@"3213213123" atSection:0];
+        [_multipleView updateSectionTitle:@"3213213123" atSection:0];
         
     } else if (indexPath.row == 2) {
-        [_mulipleView updateSectionTitle:@"111" atSection:0];
+        [_multipleView updateSectionTitle:@"111" atSection:0];
         
     } else if (indexPath.row == 1) {
         _rowNumber = 20;
-        [_mulipleView updateTableViewAtSection:0];
+        [_multipleView updateTableViewAtSection:0];
     } else if (indexPath.row == 0) {
         _rowNumber = 2;
-        [_mulipleView updateTableViewAtSection:0];
+        [_multipleView updateTableViewAtSection:0];
     }  else {
-        [_mulipleView removeFromSuperview];
+        [_multipleView removeFromSuperview];
     }
     
     

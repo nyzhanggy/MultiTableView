@@ -1,5 +1,5 @@
 
-#import "DDMulipleView.h"
+#import "DDMultipleView.h"
 #import "DDSegmentView.h"
 
 
@@ -12,9 +12,9 @@ typedef NS_ENUM(NSInteger,ScrollDirection) {
 
 };
 
-static NSString * const kDDMulipleViewContentOffset = @"contentOffset";
+static NSString * const kDDMultipleViewContentOffset = @"contentOffset";
 
-@interface DDMulipleView ()<UIScrollViewDelegate,DDSegmentViewDelegate,DDSegmentViewDataSource> {
+@interface DDMultipleView ()<UIScrollViewDelegate,DDSegmentViewDelegate,DDSegmentViewDataSource> {
     
     ScrollDirection _scrollDirection;
     CGFloat _beginDraggingX;
@@ -35,7 +35,7 @@ static NSString * const kDDMulipleViewContentOffset = @"contentOffset";
 
 @end
 
-@implementation DDMulipleView
+@implementation DDMultipleView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -56,7 +56,7 @@ static NSString * const kDDMulipleViewContentOffset = @"contentOffset";
 - (void)dealloc {
     for (NSInteger index = 0; index < _tableViews.count; index ++) {
         UITableView *subTableView = [_tableViews objectAtIndex:index];
-        [subTableView removeObserver:self forKeyPath:kDDMulipleViewContentOffset];
+        [subTableView removeObserver:self forKeyPath:kDDMultipleViewContentOffset];
     }
 }
 
@@ -65,23 +65,23 @@ static NSString * const kDDMulipleViewContentOffset = @"contentOffset";
         return;
     }
     _isInit = YES;
-    _headerView = [self.dataSources headerViewForMulipleView:self];
+    _headerView = [self.dataSources headerViewForMultipleView:self];
     
     [self.headerContainerView addSubview:_headerView];
     [self.headerContainerView addSubview:self.segmentView];
     
     _headerContainerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(_headerView.frame) + CGRectGetHeight(self.segmentView.frame));
     
-    NSUInteger numberOfsection = [self.dataSources numberOfSectionsInMulipleView:self];
+    NSUInteger numberOfsection = [self.dataSources numberOfSectionsInMultipleView:self];
     _tableViews = [NSMutableArray array];
     for (NSInteger index = 0; index < numberOfsection; index ++) {
-        UITableView *subTableView = [self.dataSources mulipleView:self tableViewForSection:index];
+        UITableView *subTableView = [self.dataSources multipleView:self tableViewForSection:index];
         
         subTableView.frame = (CGRect){CGRectGetWidth(self.frame) * index,0,self.frame.size};
         [self.scrollView addSubview:subTableView];
         [_tableViews addObject:subTableView];
         
-        [subTableView addObserver:self forKeyPath:kDDMulipleViewContentOffset options:NSKeyValueObservingOptionNew context:nil];
+        [subTableView addObserver:self forKeyPath:kDDMultipleViewContentOffset options:NSKeyValueObservingOptionNew context:nil];
         
         UIView *tempHeaderView = [[UIView alloc] initWithFrame:_headerContainerView.bounds];
         subTableView.tableHeaderView = tempHeaderView;
@@ -96,11 +96,11 @@ static NSString * const kDDMulipleViewContentOffset = @"contentOffset";
 #pragma mark - deleagte
 #pragma mark ---SegmentViewDataSource
 - (NSInteger)numberOfItemInSegment:(DDSegmentView *)segment {
-    return [self.dataSources numberOfSectionsInMulipleView:self];
+    return [self.dataSources numberOfSectionsInMultipleView:self];
 }
 - (NSString *)segment:(DDSegmentView *)segment titleForIndex:(NSInteger)index {
-    if ([self.dataSources respondsToSelector:@selector(mulipleView:titleForSection:)]) {
-        return [self.dataSources mulipleView:self titleForSection:index];
+    if ([self.dataSources respondsToSelector:@selector(multipleView:titleForSection:)]) {
+        return [self.dataSources multipleView:self titleForSection:index];
     } else {
         if (index < _tiltleArray.count) {
             return _tiltleArray[index];
@@ -114,8 +114,8 @@ static NSString * const kDDMulipleViewContentOffset = @"contentOffset";
     if (_isScrolling) {
         return;
     }
-    if ([self.delegate respondsToSelector:@selector(mulipleView:didSelectedSection:)]) {
-        [self.delegate mulipleView:self didSelectedSection:index];
+    if ([self.delegate respondsToSelector:@selector(multipleView:didSelectedSection:)]) {
+        [self.delegate multipleView:self didSelectedSection:index];
     }
     _isClickSegment = YES;
     [self bringHeaderToFront];
@@ -196,7 +196,7 @@ static NSString * const kDDMulipleViewContentOffset = @"contentOffset";
 - (void)reloadHeaderView {
     [_headerView removeFromSuperview];
 
-    _headerView = [self.dataSources headerViewForMulipleView:self];
+    _headerView = [self.dataSources headerViewForMultipleView:self];
     self.segmentView.frame = CGRectMake(0, CGRectGetHeight(_headerView.frame), CGRectGetWidth(self.frame), 44);
     
     CGFloat headerContainerViewHeight = CGRectGetHeight(_headerView.frame) + CGRectGetHeight(self.segmentView.frame);

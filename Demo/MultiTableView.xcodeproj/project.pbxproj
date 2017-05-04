@@ -10,7 +10,7 @@
 		150835A01EB043F900F4B674 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 150835961EB043F900F4B674 /* AppDelegate.m */; };
 		150835A11EB043F900F4B674 /* DDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 150835981EB043F900F4B674 /* DDTableViewCell.m */; };
 		150835A41EB043F900F4B674 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1508359F1EB043F900F4B674 /* ViewController.m */; };
-		15E34ED21EBAD0B100C749FA /* DDMulipleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E34ECF1EBAD0B100C749FA /* DDMulipleView.m */; };
+		15E34ED21EBAD0B100C749FA /* DDMultipleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E34ECF1EBAD0B100C749FA /* DDMultipleView.m */; };
 		15E34ED31EBAD0B100C749FA /* DDSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E34ED11EBAD0B100C749FA /* DDSegmentView.m */; };
 		4F53EE051D6408A00051879C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F53EE041D6408A00051879C /* main.m */; };
 		4F53EE0E1D6408A00051879C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F53EE0C1D6408A00051879C /* Main.storyboard */; };
@@ -25,8 +25,8 @@
 		150835981EB043F900F4B674 /* DDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTableViewCell.m; sourceTree = "<group>"; };
 		1508359E1EB043F900F4B674 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1508359F1EB043F900F4B674 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		15E34ECE1EBAD0B100C749FA /* DDMulipleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMulipleView.h; sourceTree = "<group>"; };
-		15E34ECF1EBAD0B100C749FA /* DDMulipleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMulipleView.m; sourceTree = "<group>"; };
+		15E34ECE1EBAD0B100C749FA /* DDMultipleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultipleView.h; sourceTree = "<group>"; };
+		15E34ECF1EBAD0B100C749FA /* DDMultipleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultipleView.m; sourceTree = "<group>"; };
 		15E34ED01EBAD0B100C749FA /* DDSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSegmentView.h; sourceTree = "<group>"; };
 		15E34ED11EBAD0B100C749FA /* DDSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSegmentView.m; sourceTree = "<group>"; };
 		4F53EE001D6408A00051879C /* MultiTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +51,8 @@
 		15E34ECD1EBAD0B100C749FA /* MultipleTable */ = {
 			isa = PBXGroup;
 			children = (
-				15E34ECE1EBAD0B100C749FA /* DDMulipleView.h */,
-				15E34ECF1EBAD0B100C749FA /* DDMulipleView.m */,
+				15E34ECE1EBAD0B100C749FA /* DDMultipleView.h */,
+				15E34ECF1EBAD0B100C749FA /* DDMultipleView.m */,
 				15E34ED01EBAD0B100C749FA /* DDSegmentView.h */,
 				15E34ED11EBAD0B100C749FA /* DDSegmentView.m */,
 			);
@@ -172,7 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15E34ED21EBAD0B100C749FA /* DDMulipleView.m in Sources */,
+				15E34ED21EBAD0B100C749FA /* DDMultipleView.m in Sources */,
 				150835A41EB043F900F4B674 /* ViewController.m in Sources */,
 				150835A01EB043F900F4B674 /* AppDelegate.m in Sources */,
 				4F53EE051D6408A00051879C /* main.m in Sources */,

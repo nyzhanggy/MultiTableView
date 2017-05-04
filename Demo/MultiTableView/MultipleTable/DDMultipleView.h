@@ -1,45 +1,45 @@
 #import <UIKit/UIKit.h>
 
-@class DDMulipleView;
-@protocol DDMulipleViewDataSources <NSObject>
+@class DDMultipleView;
+@protocol DDMultipleViewDataSources <NSObject>
 
 
 /**
  分区的个数，也就是tableview的个数／segment的分段数
  */
-- (NSInteger)numberOfSectionsInMulipleView:(DDMulipleView *)mulipleView ;
+- (NSInteger)numberOfSectionsInMultipleView:(DDMultipleView *)multipleView ;
 
 
 /**
  每个 section 对应的tableview
  */
-- (UITableView *)mulipleView:(DDMulipleView *)mulipleView tableViewForSection:(NSInteger)section;
+- (UITableView *)multipleView:(DDMultipleView *)multipleView tableViewForSection:(NSInteger)section;
 
 /**
  头视图
  */
-- (UIView *)headerViewForMulipleView:(DDMulipleView *)mulipleView;
+- (UIView *)headerViewForMultipleView:(DDMultipleView *)multipleView;
 
 @optional
 /**
  segment 每个分段的标题
  */
-- (NSString *)mulipleView:(DDMulipleView *)mulipleView titleForSection:(NSInteger)section;
+- (NSString *)multipleView:(DDMultipleView *)multipleView titleForSection:(NSInteger)section;
 
 @end
 
-@protocol DDMulipleViewDelegate<NSObject>
+@protocol DDMultipleViewDelegate<NSObject>
 
 /**
  点击 segment 的回调
  */
-- (void)mulipleView:(DDMulipleView *)mulipleView didSelectedSection:(NSInteger)section;
+- (void)multipleView:(DDMultipleView *)multipleView didSelectedSection:(NSInteger)section;
 @end
 
-@interface DDMulipleView : UIView
+@interface DDMultipleView : UIView
 
-@property (nonatomic, weak) id<DDMulipleViewDataSources>dataSources;
-@property (nonatomic, weak) id<DDMulipleViewDelegate>delegate;
+@property (nonatomic, weak) id<DDMultipleViewDataSources>dataSources;
+@property (nonatomic, weak) id<DDMultipleViewDelegate>delegate;
 @property (nonatomic, assign) CGFloat hoverOffset;                      /**< 悬停的偏移量 */
 @property (nonatomic, strong) NSArray *tiltleArray;                     /**< segment 标题 */
 @property (nonatomic, strong) UIColor *sectionNormalColor;              /**< segment 正常颜色 */
