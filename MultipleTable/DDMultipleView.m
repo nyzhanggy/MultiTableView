@@ -1,7 +1,7 @@
 
 #import "DDMultipleView.h"
 #import "DDSegmentView.h"
-
+#import "DDScrollView.h"
 
 #define HoverOffset (CGRectGetHeight(_headerView.frame) - self.hoverOffset)
 
@@ -29,7 +29,7 @@ static NSString * const kDDMultipleViewContentOffset = @"contentOffset";
     
     BOOL _isInit;
 }
-@property (nonatomic,strong) UIScrollView *scrollView;
+@property (nonatomic,strong) DDScrollView *scrollView;
 @property (nonatomic,strong) DDSegmentView *segmentView;
 @property (nonatomic, strong) UIView *headerContainerView;
 
@@ -91,6 +91,8 @@ static NSString * const kDDMultipleViewContentOffset = @"contentOffset";
     }
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.frame) * _tableViews.count, CGRectGetHeight(_scrollView.frame));
+    
+    _scrollView.disableGestureView = _headerView;
 
 }
 #pragma mark - deleagte
@@ -313,9 +315,9 @@ static NSString * const kDDMultipleViewContentOffset = @"contentOffset";
 
 #pragma mark - setter and getter
 
-- (UIScrollView *)scrollView {
+- (DDScrollView *)scrollView {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollView = [[DDScrollView alloc] initWithFrame:self.bounds];
         _scrollView.backgroundColor = [UIColor lightGrayColor];
 		_scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.pagingEnabled = YES;

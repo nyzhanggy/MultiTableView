@@ -12,6 +12,7 @@
 		150835A41EB043F900F4B674 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1508359F1EB043F900F4B674 /* ViewController.m */; };
 		1527BE7F1EBB06A6006F839F /* DDMultipleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527BE7C1EBB06A6006F839F /* DDMultipleView.m */; };
 		1527BE801EBB06A6006F839F /* DDSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527BE7E1EBB06A6006F839F /* DDSegmentView.m */; };
+		1584764321ABF9CC0037B2C5 /* DDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1584764221ABF9CC0037B2C5 /* DDScrollView.m */; };
 		4F53EE051D6408A00051879C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F53EE041D6408A00051879C /* main.m */; };
 		4F53EE0E1D6408A00051879C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F53EE0C1D6408A00051879C /* Main.storyboard */; };
 		4F53EE101D6408A00051879C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F53EE0F1D6408A00051879C /* Assets.xcassets */; };
@@ -29,6 +30,8 @@
 		1527BE7C1EBB06A6006F839F /* DDMultipleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultipleView.m; sourceTree = "<group>"; };
 		1527BE7D1EBB06A6006F839F /* DDSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSegmentView.h; sourceTree = "<group>"; };
 		1527BE7E1EBB06A6006F839F /* DDSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSegmentView.m; sourceTree = "<group>"; };
+		1584764121ABF9CC0037B2C5 /* DDScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDScrollView.h; sourceTree = "<group>"; };
+		1584764221ABF9CC0037B2C5 /* DDScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDScrollView.m; sourceTree = "<group>"; };
 		4F53EE001D6408A00051879C /* MultiTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F53EE041D6408A00051879C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F53EE0D1D6408A00051879C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +56,8 @@
 			children = (
 				1527BE7B1EBB06A6006F839F /* DDMultipleView.h */,
 				1527BE7C1EBB06A6006F839F /* DDMultipleView.m */,
+				1584764121ABF9CC0037B2C5 /* DDScrollView.h */,
+				1584764221ABF9CC0037B2C5 /* DDScrollView.m */,
 				1527BE7D1EBB06A6006F839F /* DDSegmentView.h */,
 				1527BE7E1EBB06A6006F839F /* DDSegmentView.m */,
 			);
@@ -175,6 +180,7 @@
 			files = (
 				150835A41EB043F900F4B674 /* ViewController.m in Sources */,
 				150835A01EB043F900F4B674 /* AppDelegate.m in Sources */,
+				1584764321ABF9CC0037B2C5 /* DDScrollView.m in Sources */,
 				4F53EE051D6408A00051879C /* main.m in Sources */,
 				1527BE7F1EBB06A6006F839F /* DDMultipleView.m in Sources */,
 				1527BE801EBB06A6006F839F /* DDSegmentView.m in Sources */,
